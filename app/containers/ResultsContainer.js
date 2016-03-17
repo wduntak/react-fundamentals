@@ -1,5 +1,6 @@
 var React = require('react');
 var Results = require('../components/Results');
+var githubHelpers = require('../utils/githubHelpers');
 
 var ResultsContainer = React.createClass({
 	getInitialState: function () {
@@ -8,7 +9,7 @@ var ResultsContainer = React.createClass({
 			scores: []
 		}
 	},
-	compenentDidMount: function () {
+	componentDidMount: function () {
 		githubHelpers.battle(this.props.location.state.playersInfo)
 			.then(function (scores) {
 				this.setState({
